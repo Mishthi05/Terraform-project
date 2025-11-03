@@ -1,5 +1,4 @@
 variable "aws_region" {
- nets
 }
 
 output "private_subnets" {
