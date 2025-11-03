@@ -1,14 +1,19 @@
-terraform {
-  required_version = ">= 0.14, <= 2.0.0"
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
+output "vpc_id" {
+  description = "The ID of the VPC"
+  value       = module.vpc.vpc_id
 }
  
-provider "aws" {
-  region  = var.aws_region
-  profile = "default"
+output "public_subnets" {
+  description = "List of public subnet IDs"
+  value       = module.vpc.public_subnets
+}
+ 
+output "private_subnets" {
+  description = "List of private subnet IDs"
+  value       = module.vpc.private_subnets
+}
+ 
+output "database_subnets" {
+  description = "List of database subnet IDs"
+  value       = module.vpc.database_subnets
 }
